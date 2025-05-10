@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Stack</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #000;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .text {
+            font-weight: 700;
+            color: white;
+            text-shadow: 
+                0.5vw 0.5vw 0px #F2C14E, 
+                1vw 1vw 0px #F78154, 
+                1.5vw 1.5vw 0px #CC2936;
+            margin: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Base font size for medium screens */
+        .text {
+            font-size: 11.2vw;
+        }
+
+        /* Larger font size for mobile devices */
+        @media (max-width: 768px) {
+            .text {
+                font-size: 14vw;
+            }
+        }
+
+        /* Slightly smaller font size for larger screens */
+        @media (min-width: 1200px) {
+            .text {
+                font-size: 9vw;
+            }
+        }
+
+        /* Extra large font size for very small screens */
+        @media (max-width: 480px) {
+            .text {
+                font-size: 16vw;
+            }
+        }
+
+        /* Back button style - unchanged */
+        .back-button {
+            cursor: pointer;
+            margin: 10px;
+            text-shadow: 0 -2px 0 #4a8a68, 0 1px 1px #a8d8c0;
+            box-sizing: border-box;
+            font-size: 1.5em;
+            font-family: Helvetica, Arial, Sans-Serif;
+            text-decoration: none;
+            font-weight: bold;
+            color: #6ca584;
+            height: 65px;
+            line-height: 65px;
+            padding: 0 32.5px;
+            display: inline-block;
+            width: auto;
+            background: linear-gradient(to bottom,
+                #a4ddc0 0%,
+                #9ed5b9 26%,
+                #7fbb98 100%);
+            border-radius: 5px;
+            border-top: 1px solid #a3e0bd;
+            border-bottom: 1px solid #9fd5ba;
+            transition: all 0.06s ease-out;
+            position: relative;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(to bottom,
+                #b0e5cc 0%,
+                #a9ddc3 26%,
+                #8dc9a3 100%);
+        }
+
+        .back-button:active {
+            top: 6px;
+            text-shadow: 0 -2px 0 #7fbb98, 0 1px 1px #a8d8c0, 0 0 4px white;
+            color: #c5f0d9;
+        }
+
+        .back-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Yellow page */
+        #yellow-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #DAA520;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Maroon page */
+        #maroon-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #800000;
+            color: white;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .material-list {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .material-item {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .material-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .material-link:hover {
+            text-decoration: underline;
+        }
+        .material-list {
+        margin-left: 1000px; /* Massive left margin */
+        text-align: left; /* Left-align content */
+        width: calc(100% - 100px); /* Adjust width to account for margin */
+    }
+    
+    .material-item {
+        margin: 15px 0;
+        font-size: 1.8em; /* Increased by 50% (from 1.2em) */
+        position: relative;
+        padding-left: 40px; /* Space for numbers */
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 500;
+    }
+    
+    .material-item:before {
+        content: counter(item) ".";
+        counter-increment: item;
+        position: absolute;
+        left: 0;
+    }
+    
+    .material-list {
+        counter-reset: item; /* Initialize counter */
+    }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home-page" class="container">
+        <div class="text" id="text1">11 Science</div>
+        <div class="text" id="text2">12 Science</div>
+    </div>
+
+	<!-- The yellow-page div remains the same but with numbered items -->
+<div id="yellow-page">
+    <div class="back-container">
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+    <div class="material-list">
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/9xouq1xb91p3a0ceieadm/Support-Material-DOE-Delhi.pdf?rlkey=8wc67771ii8cct671ggjlbbt1&st=pidnbl6w&dl=0" class="material-link" target="_blank">
+                Support Material DEO Delhi
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/9cet3xocg1u2tjoieu069/R-D-Sharma-G11SCI.pdf?rlkey=cp3vauvmo1idhrbpwx6vrn0hp&st=3ff24mhk&dl=0" class="material-link" target="_blank">
+                R D Old edition
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/0dtv30nk5u1de0p9lwt7l/permutations.pdf?rlkey=aq3ggjir12974gmlqghx9txdr&st=ak7xuu26&dl=0" class="material-link" target="_blank">
+                Permutations HW
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/f9wbf43fwhwjvcj7up2ey/COMBINATIONS.pdf?rlkey=orctgr9l7taxuhquxk0r8gyh2&st=nz5qqnjj&dl=0" class="material-link" target="_blank">
+                Combinations Worksheet
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/7vdd9o5nb0xfvq2vwgte8/BT-1.pdf?rlkey=xaqm85bjdtpn7s39m0732z4hm&st=s2ye7z8g&dl=0" class="material-link" target="_blank">
+                Binomial Theorem - 1
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/4l4tka4ne7iv3y9hi03b5/Sets-Operations-Worksheet.pdf?rlkey=hy1u29fvvd284a6echuug97ku&st=ll0irpao&dl=0" class="material-link" target="_blank">
+                Sets Worksheet
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/pcb1x2aseykl5o87qesjn/combppt.pdf?rlkey=g27kk632fyhanbetyx7wozvkr&st=og0kroht&dl=0" class="material-link" target="_blank">
+                Combination Formula
+            </a>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- Maroon Page (12 Science) -->
+
+	<div id="maroon-page">
+    <div class="back-container">
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+    <div class="material-list">
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/nuw05afxkdreep58zv69g/12th-Support-Material-DOE-Delhi.pdf?rlkey=c0eby957acgagy02k2ptzx72p&st=icd8blg1&dl=0" class="material-link" target="_blank">
+                Support Material DEO Delhi
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/0113eoulfalqgj887a2df/MTG-10-Years-CBSE-Champion-Chapterwise-Topicwise-Mathematics-MTG-10-Years-CBSE-Champion-1-2024-2024-MTG-3aef0430c08da34d0f0cc1d480cd5a1c-Anna-s-Archive.pdf?rlkey=m5qsnck469vlu5znp3pzko067&st=i85l70eh&dl=0" class="material-link" target="_blank">
+                MTG Question Bank
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/atggdimamrez4yze95dhi/ITF-Matrix-Determinants-MCQ.pdf?rlkey=d4veyo7fna1tckssx8fi10s6c&st=872anxdq&dl=0" class="material-link" target="_blank">
+                MCQ (ITF, Matrices, Determinants)
+            </a>
+        </div>
+        <div class="material-item">
+            <a href="https://www.dropbox.com/scl/fi/bxygti9ngozhc50pkj6gv/Worksheet-ITF-Mat-Det.pdf?rlkey=qznarzw90w13t7r5y5b4yu6d6&st=f1uegf7c&dl=0" class="material-link" target="_blank">
+                Worksheet (ITF, Matrices, Determinants)
+            </a>
+        </div>
+    </div>
+</div>
+    
+    <script>
+        // Function to navigate to yellow page (11 Science)
+        function showYellowPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('yellow-page').style.display = 'flex';
+        }
+
+        // Function to navigate to maroon page (12 Science)
+        function showMaroonPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('maroon-page').style.display = 'flex';
+        }
+
+        // Function to go back to home page
+        function goBack() {
+            document.getElementById('home-page').style.display = 'flex';
+            document.getElementById('yellow-page').style.display = 'none';
+            document.getElementById('maroon-page').style.display = 'none';
+        }
+
+        // Add click event listeners
+        document.getElementById('text1').addEventListener('click', showYellowPage);
+        document.getElementById('text2').addEventListener('click', showMaroonPage);
+    </script>
+</body>
+</html>
