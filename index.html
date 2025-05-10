@@ -4,189 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sam Stack</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Space+Grotesk:wght@400;500;700&display=swap');
+   
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
+    @viewport {
+        width: device-width;
+        zoom: 1.0;
+    }
 
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: #000;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .text {
-            font-weight: 700;
-            color: white;
-            text-shadow: 
-                0.5vw 0.5vw 0px #F2C14E, 
-                1vw 1vw 0px #F78154, 
-                1.5vw 1.5vw 0px #CC2936;
-            margin: 10px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        /* Base font size for medium screens */
-        .text {
-            font-size: 11.2vw;
-        }
-
-        /* Larger font size for mobile devices */
-        @media (max-width: 768px) {
-            .text {
-                font-size: 14vw;
-            }
-        }
-
-        /* Slightly smaller font size for larger screens */
-        @media (min-width: 1200px) {
-            .text {
-                font-size: 9vw;
-            }
-        }
-
-        /* Extra large font size for very small screens */
-        @media (max-width: 480px) {
-            .text {
-                font-size: 16vw;
-            }
-        }
-
-        /* Back button style - unchanged */
-        .back-button {
-            cursor: pointer;
-            margin: 10px;
-            text-shadow: 0 -2px 0 #4a8a68, 0 1px 1px #a8d8c0;
-            box-sizing: border-box;
-            font-size: 1.5em;
-            font-family: Helvetica, Arial, Sans-Serif;
-            text-decoration: none;
-            font-weight: bold;
-            color: #6ca584;
-            height: 65px;
-            line-height: 65px;
-            padding: 0 32.5px;
-            display: inline-block;
-            width: auto;
-            background: linear-gradient(to bottom,
-                #a4ddc0 0%,
-                #9ed5b9 26%,
-                #7fbb98 100%);
-            border-radius: 5px;
-            border-top: 1px solid #a3e0bd;
-            border-bottom: 1px solid #9fd5ba;
-            transition: all 0.06s ease-out;
-            position: relative;
-        }
-
-        .back-button:hover {
-            background: linear-gradient(to bottom,
-                #b0e5cc 0%,
-                #a9ddc3 26%,
-                #8dc9a3 100%);
-        }
-
-        .back-button:active {
-            top: 6px;
-            text-shadow: 0 -2px 0 #7fbb98, 0 1px 1px #a8d8c0, 0 0 4px white;
-            color: #c5f0d9;
-        }
-
-        .back-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        /* Yellow page */
-        #yellow-page {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #DAA520;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Maroon page */
-        #maroon-page {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #800000;
-            color: white;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .content {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .material-list {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .material-item {
-            margin: 15px 0;
-            font-size: 1.2em;
-        }
-
-        .material-link {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .material-link:hover {
-            text-decoration: underline;
-        }
-        .material-list {
-        margin-left: 1000px; /* Massive left margin */
-        text-align: left; /* Left-align content */
-        width: calc(100% - 100px); /* Adjust width to account for margin */
+    /* ensure proper mobile rendering */
+    html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
     }
     
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        font-family: 'Rajdhani', sans-serif;
+        background-color: #000;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .text {
+        font-weight: 700;
+        color: white;
+        text-shadow: 
+            0.5vw 0.5vw 0px #F2C14E, 
+            1vw 1vw 0px #F78154, 
+            1.5vw 1.5vw 0px #CC2936;
+        margin: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    /* Base font size for medium screens */
+    .text {
+        font-size: 11.2vw;
+    }
+
+    /* Larger font size for mobile devices */
+    @media (max-width: 768px) {
+        .text {
+            font-size: 14vw;
+        }
+    }
+
+    /* Slightly smaller font size for larger screens */
+    @media (min-width: 1200px) {
+        .text {
+            font-size: 9vw;
+        }
+    }
+
+    /* Extra large font size for very small screens */
+    @media (max-width: 480px) {
+        .text {
+            font-size: 16vw;
+        }
+    }
+
+    /* Back button style */
+    .back-button {
+        cursor: pointer;
+        margin: 10px;
+        text-shadow: 0 -2px 0 #4a8a68, 0 1px 1px #a8d8c0;
+        box-sizing: border-box;
+        font-size: 1.5em;
+        font-family: Helvetica, Arial, Sans-Serif;
+        text-decoration: none;
+        font-weight: bold;
+        color: #6ca584;
+        height: 65px;
+        line-height: 65px;
+        padding: 0 32.5px;
+        display: inline-block;
+        width: auto;
+        background: linear-gradient(to bottom,
+            #a4ddc0 0%,
+            #9ed5b9 26%,
+            #7fbb98 100%);
+        border-radius: 5px;
+        border-top: 1px solid #a3e0bd;
+        border-bottom: 1px solid #9fd5ba;
+        transition: all 0.06s ease-out;
+        position: relative;
+    }
+
+    .back-button:hover {
+        background: linear-gradient(to bottom,
+            #b0e5cc 0%,
+            #a9ddc3 26%,
+            #8dc9a3 100%);
+    }
+
+    .back-button:active {
+        top: 6px;
+        text-shadow: 0 -2px 0 #7fbb98, 0 1px 1px #a8d8c0, 0 0 4px white;
+        color: #c5f0d9;
+    }
+
+    .back-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* Yellow page */
+    #yellow-page {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #DAA520;
+        flex-direction: column;
+        align-items: flex-start; /* Changed from center to flex-start */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    /* Maroon page */
+    #maroon-page {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #800000;
+        color: white;
+        flex-direction: column;
+        align-items: flex-start; /* Changed from center to flex-start */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .content {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .material-list {
+        margin: 30px 0 0 100px; /* Top margin only, left margin for desktop */
+        padding-right: 20px;
+        width: calc(100% - 120px); /* Account for left margin */
+        text-align: left;
+        counter-reset: item;
+        overflow-x: hidden;
+    }
+
     .material-item {
         margin: 15px 0;
-        font-size: 1.8em; /* Increased by 50% (from 1.2em) */
+        font-size: 1.8em;
         position: relative;
-        padding-left: 40px; /* Space for numbers */
-	font-family: 'Space Grotesk', sans-serif;
-	font-weight: 500;
+        padding-left: 40px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 500;
+        line-height: 1.3;
     }
-    
+
     .material-item:before {
         content: counter(item) ".";
         counter-increment: item;
         position: absolute;
         left: 0;
     }
-    
-    .material-list {
-        counter-reset: item; /* Initialize counter */
+
+    .material-link {
+        color: inherit;
+        text-decoration: none;
+        word-break: break-word; /* Prevent long words from overflowing */
     }
-    </style>
+
+    .material-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+        .material-list {
+            margin-left: 30px; /* Reduced left margin for mobile */
+            width: calc(100% - 50px); /* Adjusted width */
+        }
+
+        .material-item {
+            font-size: 1.4em; /* Slightly smaller font for mobile */
+            padding-left: 35px;
+        }
+
+        .back-button {
+            font-size: 1.2em;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 25px;
+        }
+    }
+
+    /* Extra small mobile devices */
+    @media (max-width: 480px) {
+        .material-list {
+            margin-left: 20px;
+            width: calc(100% - 40px);
+        }
+
+        .material-item {
+            font-size: 1.2em;
+            padding-left: 30px;
+        }
+    }
+</style>
+
+
 </head>
 <body>
     <!-- Home Page -->
@@ -202,7 +243,7 @@
     </div>
     <div class="material-list">
         <div class="material-item">
-           <a href="https://dl.dropboxusercontent.com/s/9xouq1xb91p3a0ceieadm/Support-Material-DOE-Delhi.pdf">
+            <a href="https://www.dropbox.com/scl/fi/9xouq1xb91p3a0ceieadm/Support-Material-DOE-Delhi.pdf?rlkey=8wc67771ii8cct671ggjlbbt1&st=pidnbl6w&dl=0" class="material-link" target="_blank">
                 Support Material DEO Delhi
             </a>
         </div>
